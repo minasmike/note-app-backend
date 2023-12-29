@@ -1,0 +1,70 @@
+################################# NOTES TESTS ##########################################
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTcwMzg1Mzc3OSwiZXhwIjoxNzAzODU3Mzc5fQ.QzZt74PdtR20MnLlDtVoBASlEowIh83ZSKqCn5yRieY
+### Create a Note  //WORKING
+
+POST http://localhost:3000/notes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "title": "hello title",
+    "body": "hello content."
+}
+
+### Get all notes.  //WORKING
+GET http://localhost:3000/notes
+Authorization: Bearer {{token}}
+
+### Get a note by id. //WORKING
+GET http://localhost:3000/notes/52
+Authorization: Bearer {{token}}
+
+
+### Update a note.  //WORKING
+PUT http://localhost:3000/notes/57
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "title": "This is the 1.",
+    "body": "This is the body 1."
+}
+
+### Delete a note. //WORKING
+DELETE http://localhost:3000/notes/52
+Authorization: Bearer {{token}}
+
+
+
+################################### USER TESTS ########################################
+
+### Create user.  //WORKING
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "username": "minas",
+    "password": "12345678"
+}
+
+
+### Login user  //
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "minas",
+    "password": "12345678"
+}
+
+### Logout user
+POST http://localhost:3000/auth/logout
+Authorization: Bearer {{token}}
+
+
+
+
+#### user-Profile ####
+GET http://localhost:3000/user//user-Profile
+Authorization: Bearer {{token}}
+

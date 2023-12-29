@@ -1,0 +1,47 @@
+# version: '3'
+# services:
+  
+
+#   db:
+#     image: postgres:latest
+#     ports:
+#       - "5432:5432"
+#     environment:
+#       POSTGRES_USER: me
+#       POSTGRES_PASSWORD: root
+#       POSTGRES_DB: note_taking_app
+
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: me
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: note_taking_app
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+  # node-app:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   depends_on:
+  #     - postgres
+  #   environment:
+  #     DB_HOST: postgres
+  #     DB_PORT: 5432
+  #     DB_USERNAME: me
+  #     DB_PASSWORD: root
+  #     DB_NAME: note_taking_app
+  #   ports:
+  #     - "3000:3000"
+  #   networks:
+  #     - app-network
+
+networks:
+  app-network:
+    driver: bridge
