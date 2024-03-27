@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const User = require("../models/userModel");
 const sessionController = require("./sessionController");
 const { deleteSession } = require('../controllers/sessionController');
-const { registerSchema, loginSchema } = require('../validations/authValidation');
+const { registerSchema, loginSchema, passwordChange } = require('../validations/authValidation');
 // register a new user
 const register = async (req, res) => {
   try {
@@ -61,6 +61,38 @@ const login = async (req, res) => {
     res.status(500).json({ success: false, error: "Internal Server Error" });
   }
 };
+
+// const passwordChange = async (req, res) => {
+//   try {
+//     // Validate the request body against the login schema
+//     const { error } = passwordChange.validate(req.body);
+//     if (error) {
+//       return res.status(400).json({ success: false, error: error.details[0].message });
+//     }
+//     //fetch username and password and check if the username and password exists and match.
+//     const { username, existingPassword, repeatPassword} = req.body;
+//     const user = await User.findOne({ where: { username } });
+
+//     if (!user) {
+//       return res.status(401).json({ success: false, error: "Invalid Username" });
+//     }
+
+//     const passwordMatch = await bcrypt.compare(password, user.password);
+
+//     if (!passwordMatch) {
+//       return res.status(401).json({ success: false, error: "Invalid Password" });
+//     }
+
+//     // Delegate token creation to sessionController
+//     const session = await sessionController.createOrUpdateSession(user.id);
+        
+
+//     res.status(200).json({ success: true, session });
+//   } catch (error) {
+//     console.error("Error logging in:", error.message);
+//     res.status(500).json({ success: false, error: "Internal Server Error" });
+//   }
+// };
 
 // lougout existing user.
 const logout = async (req, res) => {

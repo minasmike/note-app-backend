@@ -19,7 +19,7 @@ const createOrUpdateSession = async (userId) => {
     // If no session exists, create a new one
     const newSession = await Session.create({
       token: jwt.sign({ userId }, process.env.SECRET_KEY, {
-        expiresIn: "1h",
+        expiresIn: "24h",
       }),
       userId,
     });
