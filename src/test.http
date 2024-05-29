@@ -1,5 +1,5 @@
 ################################# NOTES TESTS ##########################################
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTcwNDg4MDAyNiwiZXhwIjoxNzA0ODgzNjI2fQ.d9P3Yoxfml1Dw16vi3sDmqK7fw3myYrR7XQagHzJnKk
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxNzAwNjQ4MiwiZXhwIjoxNzE3NjExMjgyfQ.wHgVNuyBnb9rrlXVqbpDwJvyr4iHBbO003QI7UOfwtk
 ### Create a Note  //WORKING
 
 POST http://localhost:3000/notes
@@ -7,12 +7,12 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "title": "hello title",
-    "body": "hello content."
+    "title": "abel note 1 title",
+    "body": "abel note 1 content."
 }
 
 ### Get all notes.  //WORKING
-GET http://localhost:3000/notes
+GET http://localhost:8080/notes
 Authorization: Bearer {{token}}
 
 ### Get a note by id. //WORKING
@@ -43,7 +43,7 @@ POST http://localhost:8080/auth/register
 Content-Type: application/json
 
 {
-    "username": "mensur",
+    "username": "abel",
     "password": "12345678"
 }
 
@@ -53,7 +53,7 @@ POST http://localhost:8080/auth/login
 Content-Type: application/json
 
 {
-    "username": "minas",
+    "username": "abel",
     "password": "12345678"
 }
 

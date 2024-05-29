@@ -10,7 +10,7 @@ const createOrUpdateSession = async (userId) => {
 
     if (existingSession) {
       existingSession.token = jwt.sign({ userId }, process.env.SECRET_KEY, {
-        expiresIn: "1h",
+        expiresIn: "7d",
       });
       await existingSession.save();
       return existingSession;
@@ -19,7 +19,7 @@ const createOrUpdateSession = async (userId) => {
     // If no session exists, create a new one
     const newSession = await Session.create({
       token: jwt.sign({ userId }, process.env.SECRET_KEY, {
-        expiresIn: "24h",
+        expiresIn: "7d",
       }),
       userId,
     });
